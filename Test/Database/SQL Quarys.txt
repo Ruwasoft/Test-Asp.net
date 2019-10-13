@@ -1,0 +1,64 @@
+
+
+SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
+SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
+SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
+
+-- -----------------------------------------------------
+-- Schema AmurthaPharmacyDb
+-- -----------------------------------------------------
+
+-- -----------------------------------------------------
+-- Schema AmurthaPharmacyDb
+-- -----------------------------------------------------
+CREATE SCHEMA IF NOT EXISTS `AmurthaPharmacyDb` DEFAULT CHARACTER SET utf8 ;
+USE `AmurthaPharmacyDb` ;
+
+-- -----------------------------------------------------
+-- Table `AmurthaPharmacyDb`.`TblUser`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `AmurthaPharmacyDb`.`TblUser` (
+  `Username` VARCHAR(15) NOT NULL,
+  `Password` VARCHAR(45) NULL,
+  PRIMARY KEY (`Username`))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `AmurthaPharmacyDb`.`TblMedicine`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `AmurthaPharmacyDb`.`TblMedicine` (
+  `Barcode` VARCHAR(20) NOT NULL,
+  `Medicine` VARCHAR(60) NOT NULL,
+  `Price` DOUBLE NOT NULL,
+  PRIMARY KEY (`Barcode`, `Medicine`),
+  UNIQUE INDEX `Barcode_UNIQUE` (`Barcode` ASC),
+  UNIQUE INDEX `Medicine_UNIQUE` (`Medicine` ASC))
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `AmurthaPharmacyDb`.`TblSales`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `AmurthaPharmacyDb`.`TblSales` (
+  `Date` VARCHAR(30) NULL,
+  `Medicine` VARCHAR(45) NULL,
+  `Qty` INT NULL,
+  `Price` DOUBLE NULL)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `AmurthaPharmacyDb`.`TblBillAmount`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `AmurthaPharmacyDb`.`TblBillAmount` (
+  `Year` VARCHAR(20) NULL,
+  `Month` VARCHAR(20) NULL,
+  `Date` VARCHAR(20) NULL,
+  `Amount` DOUBLE NULL)
+ENGINE = InnoDB;
+
+
+SET SQL_MODE=@OLD_SQL_MODE;
+SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
+SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;

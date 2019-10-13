@@ -1,0 +1,51 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title>
+        <asp:ContentPlaceHolder ID="Title" runat="server"></asp:ContentPlaceHolder>
+    </title>
+    <link href="Style/MainStyleSheet.css" rel="stylesheet" />
+
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class ="wrapper">  
+
+                <div class ="menu"> 
+                    <ul >
+                        <li > <a href ="FrmSearchItem.aspx" > Sales </a> </li>
+                        <li > <a href ="FrmAddItem.aspx" > Add Item </a> </li>
+                        <li > <a href ="FrmChangePrice.aspx" > Change Price </a> </li>
+                        <li > <a href ="FrmDeleteItem.aspx" > Delete Item </a> </li>
+                        <li > <a href ="FrmAboutUs.aspx" > About Us </a> </li>
+
+               
+
+                    </ul>
+
+                </div>
+
+                <div class ="clear">    </div>
+
+                    <div class="content" >
+                           <asp:ContentPlaceHolder id="Contentbody" runat="server">
+        
+                           </asp:ContentPlaceHolder>
+                    </div>
+
+                <div class ="clear"> 
+
+                </div>
+
+                <div class ="footer">  
+                    <h2>   ruwasoft@gmail.com </h2>
+                </div>
+    </div>
+    </form>
+</body>
+</html>
